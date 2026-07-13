@@ -27600,7 +27600,11 @@ async function main() {
 
 main()
   .then(() => console.log("Finished"))
-  .catch((error) => core.setFailed(formatError(error)));
+  .catch((error) => {
+    const message = formatError(error);
+    console.error(message);
+    core.setFailed(message);
+  });
 
 module.exports = __webpack_exports__;
 /******/ })()

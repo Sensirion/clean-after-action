@@ -8,7 +8,7 @@ Clean up the work directory for self-hosted runners after they finish building.
 - uses: FraBle/clean-after-action@v2
 ```
 
-This action ships committed bundled JavaScript under `dist/`, with `action.yml` pointing at `dist/main/index.js` and `dist/post/index.js`.
+This action ships committed bundled JavaScript under `dist/`, with `action.yml` pointing at `dist/main.js` and `dist/cleanup.js`.
 
 > [!IMPORTANT]
 > This must be run before any caching tasks, as cleanups are run in reverse order (and you do not want to clean up before the caching is saved).
