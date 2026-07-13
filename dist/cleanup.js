@@ -27602,7 +27602,6 @@ main()
   .then(() => console.log("Finished"))
   .catch((error) => {
     const message = formatError(error);
-    console.error(message);
     core.setFailed(message);
   });
 

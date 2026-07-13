@@ -3,9 +3,7 @@
   "version": "2.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\" && npm run build:main && npm run build:post",
-    "build:main": "ncc build index.js -o dist/main-tmp && node -e \"const fs = require('fs'); fs.renameSync('dist/main-tmp/index.js', 'dist/main.js'); fs.rmdirSync('dist/main-tmp');\"",
-    "build:post": "ncc build cleanup.js -o dist/post-tmp && node -e \"const fs = require('fs'); fs.renameSync('dist/post-tmp/index.js', 'dist/cleanup.js'); fs.rmdirSync('dist/post-tmp');\""
+    "build": "node scripts/build-dist.js"
   },
   "author": "Michael Medin <michael@medin.name>",
   "contributors": [
