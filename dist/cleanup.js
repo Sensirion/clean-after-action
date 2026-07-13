@@ -27575,7 +27575,7 @@ function getBoolValue(name) {
 
 function formatError(error) {
   if (error instanceof Error) {
-    return error.message;
+    return error.stack || error.message;
   }
 
   if (typeof error === "object" && error !== null) {
