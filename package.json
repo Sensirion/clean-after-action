@@ -2,6 +2,9 @@
   "name": "clean-after-action",
   "version": "2.0.0",
   "main": "index.js",
+  "scripts": {
+    "build": "node scripts/build-dist.js"
+  },
   "author": "Michael Medin <michael@medin.name>",
   "contributors": [
     "Frank Blechschmidt <contact@frank-blechschmidt.com>"
@@ -10,6 +13,9 @@
   "dependencies": {
     "@actions/core": "1.11.1",
     "@actions/io": "1.1.3"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.44.1"
   },
   "repository": {
     "type": "git",

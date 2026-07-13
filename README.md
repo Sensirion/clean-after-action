@@ -8,6 +8,8 @@ Clean up the work directory for self-hosted runners after they finish building.
 - uses: FraBle/clean-after-action@v2
 ```
 
+This action ships committed bundled JavaScript under `dist/`, with `action.yml` pointing at `dist/main.js` and `dist/cleanup.js`.
+
 > [!IMPORTANT]
 > This must be run before any caching tasks, as cleanups are run in reverse order (and you do not want to clean up before the caching is saved).
 
@@ -50,3 +52,12 @@ The main problem with running cleanup as a build step is that it will run "befor
 This will effectively break things like caching and similar things that require files to be left when their cleanup runs.
 
 A similar argument can be made for running cleanup before you build. This means the disk will eventually become full as more and more projects are built.
+
+## Development
+
+After changing `index.js` or `cleanup.js`, rebuild the committed action artifacts:
+
+```bash
+npm ci
+npm run build
+```
