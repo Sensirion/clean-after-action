@@ -27573,6 +27573,18 @@ function getBoolValue(name) {
   );
 }
 
+function formatError(error) {
+  if (error instanceof Error) {
+    return error.message;
+  }
+
+  if (typeof error === "object" && error !== null) {
+    return JSON.stringify(error);
+  }
+
+  return String(error);
+}
+
 async function main() {
   const keepGit = getBoolValue("keep-git");
   const files = await readdir(".");
@@ -27588,9 +27600,7 @@ async function main() {
 
 main()
   .then(() => console.log("Finished"))
-  .catch((error) =>
-    core.setFailed(error instanceof Error ? error.message : String(error))
-  );
+  .catch((error) => core.setFailed(formatError(error)));
 
 module.exports = __webpack_exports__;
 /******/ })()
